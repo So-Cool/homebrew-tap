@@ -10,7 +10,7 @@ class Readtime < Formula
   license "BSD-3-Clause"
 
   depends_on "git"     # only tracked files are counted in a git repository
-  depends_on "pandoc"  # converts the documents for the readtime.lua filter
+  depends_on "pandoc"  # converts the documents for the Lua filter
 
   uses_from_macos "ncurses"  # tput and clear
 
@@ -24,10 +24,13 @@ class Readtime < Formula
 
   def install
     bin.install "readtime"
-    pkgshare.install "readtime.lua"  # found by readtime in ../share/readtime/
+    # Only the filter readtime uses;
+    # located in $HOMEBREW_PREFIX/share/readtime/.
+    pkgshare.install "filters/readtime_extended.lua"
   end
 
   test do
+    ENV["HOMEBREW_PREFIX"] = HOMEBREW_PREFIX.to_s
     assert_equal version.to_s, shell_output("#{bin}/readtime --version").strip
     (testpath/"test.md").write "Some words to count.\n"
     assert_equal "test.md: 1m (4w)", shell_output("#{bin}/readtime --compact test.md").lines.first.chomp
