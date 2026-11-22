@@ -7,8 +7,8 @@ class OverleafBackup < Formula
   # is not installable before.
   desc "Back up Overleaf projects as local git repositories"
   homepage "https://github.com/So-Cool/overleaf-backup"
-  url "https://github.com/So-Cool/overleaf-backup/archive/refs/tags/v0.0.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  url "https://github.com/So-Cool/overleaf-backup/archive/refs/tags/v0.1.tar.gz"
+  sha256 "155e835391878480db206aa36aa297895ca54067881b14aea6cb81c10e13bcee"
   license "BSD-3-Clause"
 
   depends_on "python@3.15"  # needs Python 3.11 or newer (tomllib)
