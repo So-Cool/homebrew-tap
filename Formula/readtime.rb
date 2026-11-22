@@ -5,8 +5,8 @@ class Readtime < Formula
   # so the formula is not installable before.
   desc "Estimate the reading time of Markdown, Quarto, LaTeX and Typst files"
   homepage "https://github.com/So-Cool/readtime"
-  url "https://github.com/So-Cool/readtime/archive/refs/tags/v0.0.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  url "https://github.com/So-Cool/readtime/archive/refs/tags/v0.1.tar.gz"
+  sha256 "06afcb824318653c883ff3b4de8e44887ce96495d046a7458149d9ce6b287428"
   license "BSD-3-Clause"
 
   depends_on "git"     # only tracked files are counted in a git repository
