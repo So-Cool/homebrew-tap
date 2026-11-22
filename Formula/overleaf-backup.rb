@@ -12,6 +12,7 @@ class OverleafBackup < Formula
   license "BSD-3-Clause"
 
   depends_on "python@3.15"  # needs Python 3.11 or newer (tomllib)
+  depends_on "git"
 
   def install
     rewrite_shebang detected_python_shebang, "overleaf-backup"
