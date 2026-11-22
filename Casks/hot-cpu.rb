@@ -7,7 +7,7 @@ cask "hot-cpu" do
   # So-Cool/hot-cpu is private so the zip is downloaded through the GitHub API:
   # export HOMEBREW_GITHUB_API_TOKEN, a token that can read that repository,
   # before installing or upgrading.
-  url "https://api.github.com/repos/So-Cool/hot-cpu/releases/assets/REPLACE_WITH_ASSET_ID",
+  url "https://api.github.com/repos/So-Cool/hot-cpu/releases/assets/779555016",
       header: [
         "Accept: application/octet-stream",
         "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", "")}",
