@@ -1,7 +1,7 @@
 cask "hot-cpu" do
   # Updated by the release workflow of So-Cool/hot-cpu on each release.
-  version "0.0.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  version "1.0"
+  sha256 "06614e1da62ffc74c6d88d614d478c99bdb729f8d2382c74eba303026c9f3a40"
 
   url "https://github.com/So-Cool/hot-cpu/releases/download/v#{version}/Hot-CPU-#{version}.zip"
   name "Hot CPU"
