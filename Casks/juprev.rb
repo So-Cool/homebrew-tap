@@ -2,8 +2,8 @@ cask "juprev" do
   # Placeholder until the first release:
   # scripts/release.sh in So-Cool/JuPrev prints the version and sha256 to put
   # here.
-  version "0.0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  version "0.1"
+  sha256 "81e2793c4ee752446b30d30a468c1ec94eafe159e7aa98921dc020388554629c"
 
   url "https://github.com/So-Cool/JuPrev/releases/download/v#{version}/JuPrev-#{version}.zip"
   name "JuPrev"
