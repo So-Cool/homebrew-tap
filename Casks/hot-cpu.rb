@@ -24,9 +24,9 @@ cask "hot-cpu" do
                    args: ["-dr", "com.apple.quarantine", "#{appdir}/Hot CPU.app"]
   end
 
-  uninstall quit: "me.kcp.hot-cpu"
+  uninstall quit: "me.kcpr.hot-cpu"
 
   # The config and the skins in ~/.config/hot-cpu are left alone:
   # they may be symlinks to a dotfiles repository.
-  zap trash: "~/Library/Preferences/me.kcp.hot-cpu.plist"
+  zap trash: "~/Library/Preferences/me.kcpr.hot-cpu.plist"
 end
