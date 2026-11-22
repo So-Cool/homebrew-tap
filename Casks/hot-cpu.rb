@@ -1,17 +1,21 @@
 cask "hot-cpu" do
-  # Updated by the release workflow of So-Cool/hot-cpu on each release.
+  # Version, sha256 and asset ID in the URL are updated by the release
+  # workflow of So-Cool/hot-cpu on each release.
   version "1.0"
   sha256 "06614e1da62ffc74c6d88d614d478c99bdb729f8d2382c74eba303026c9f3a40"
 
-  url "https://github.com/So-Cool/hot-cpu/releases/download/v#{version}/Hot-CPU-#{version}.zip"
+  # So-Cool/hot-cpu is private so the zip is downloaded through the GitHub API:
+  # export HOMEBREW_GITHUB_API_TOKEN, a token that can read that repository,
+  # before installing or upgrading.
+  url "https://api.github.com/repos/So-Cool/hot-cpu/releases/assets/REPLACE_WITH_ASSET_ID",
+      header: [
+        "Accept: application/octet-stream",
+        "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", "")}",
+        "X-GitHub-Api-Version: 2022-11-28",
+      ]
   name "Hot CPU"
   desc "Shows the CPU load or temperature with animated skins"
   homepage "https://github.com/So-Cool/hot-cpu"
-
-  livecheck do
-    url :url
-    strategy :github_latest
-  end
 
   depends_on macos: :sonoma
 
