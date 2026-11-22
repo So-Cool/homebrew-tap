@@ -2,8 +2,8 @@ class Mathtex < Formula
   # Updated by the release workflow of So-Cool/MathTeX on each release.
   desc "Render LaTeX equations from the terminal to PDF, PNG or SVG"
   homepage "https://github.com/So-Cool/MathTeX"
-  url "https://github.com/So-Cool/MathTeX/archive/refs/tags/v0.0.0.tar.gz"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  url "https://github.com/So-Cool/MathTeX/archive/refs/tags/v0.2.tar.gz"
+  sha256 "f5625bd79e647b1af8d6808b46be7166ba415141d4bbb3243439c5d41e217bf0"
   license "BSD-3-Clause"
 
   depends_on :macos         # pbpaste and osascript for the clipboard
