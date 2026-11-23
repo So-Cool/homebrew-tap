@@ -1,8 +1,8 @@
 cask "juprev" do
   # Version and sha256 are updated by the release workflow of So-Cool/JuPrev
   # on each release.
-  version "0.1"
-  sha256 "81e2793c4ee752446b30d30a468c1ec94eafe159e7aa98921dc020388554629c"
+  version "0.2"
+  sha256 "336774a547a57840d94ebfea6e0b60971bbbd8a5e2298426f746ffba301a8c23"
 
   url "https://github.com/So-Cool/JuPrev/releases/download/v#{version}/JuPrev-#{version}.zip"
   name "JuPrev"
