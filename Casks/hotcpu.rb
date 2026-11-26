@@ -1,13 +1,13 @@
 cask "hotcpu" do
   # Version, sha256 and asset ID in the URL are updated by the release
   # workflow of So-Cool/hotcpu on each release.
-  version "1.4"
-  sha256 "a9919e8a5fbbae4939c111f6149930549726fc2a46e36b19b84d5b679e828ca8"
+  version "1.5"
+  sha256 "6e11d50b889ed3e881e755596f12d8a9edde6423dbb0cca834021c74524bd81a"
 
   # So-Cool/hotcpu is private so the zip is downloaded through the GitHub API:
   # export HOMEBREW_GITHUB_API_TOKEN, a token that can read that repository,
   # before installing or upgrading.
-  url "https://api.github.com/repos/So-Cool/hotcpu/releases/assets/784535604",
+  url "https://api.github.com/repos/So-Cool/hotcpu/releases/assets/795844859",
       header: [
         "Accept: application/octet-stream",
         "Authorization: Bearer #{ENV.fetch("HOMEBREW_GITHUB_API_TOKEN", "")}",
