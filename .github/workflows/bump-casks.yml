@@ -16,12 +16,11 @@ jobs:
       matrix:
         cask: [ia-writer]  # list of casks
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-
       - name: Set up Homebrew
         id: setup
         uses: Homebrew/actions/setup-homebrew@main
+        with:
+          token: ${{ github.token }}
 
       - name: Check for a newer version
         id: check
@@ -38,14 +37,9 @@ jobs:
         env:
           HOMEBREW_NO_AUTO_UPDATE: 1
           LATEST: ${{ steps.check.outputs.latest }}
-          CASK: Casks/${{ matrix.cask }}.rb
-          TAP: ${{ steps.setup.outputs.repository-path }}
         run: |
           brew bump-cask-pr --write-only --no-audit --no-style \
             --version "$LATEST" "so-cool/tap/${{ matrix.cask }}"
-          # Bring the bumped cask over from Homebrew's copy of the tap
-          # (skipped if both paths point at the same file).
-          cmp -s "$TAP/$CASK" "$CASK" || cp "$TAP/$CASK" "$CASK"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -am "${{ matrix.cask }} ${LATEST}"
