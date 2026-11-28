@@ -1,0 +1,46 @@
+name: Bump casks
+
+on:
+  schedule:
+    - cron: "17 6 1 * *"  # every first day of the month at 06:17 UTC
+  workflow_dispatch:  # enable manual runs
+
+permissions:
+  contents: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest  # macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cask: [ia-writer]  # list of casks
+    steps:
+      - name: Set up Homebrew
+        id: setup
+        uses: Homebrew/actions/setup-homebrew@main
+
+      - name: Check for a newer version
+        id: check
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+        run: |
+          json=$(brew livecheck --cask --json "so-cool/tap/${{ matrix.cask }}")
+          echo "$json"
+          echo "outdated=$(jq -r '.[0].version.outdated' <<<"$json")" >> "$GITHUB_OUTPUT"
+          echo "latest=$(jq -r '.[0].version.latest' <<<"$json")" >> "$GITHUB_OUTPUT"
+
+      - name: Update the cask file
+        if: steps.check.outputs.outdated == 'true'
+        working-directory: ${{ steps.setup.outputs.repository-path }}
+        env:
+          HOMEBREW_NO_AUTO_UPDATE: 1
+          LATEST: ${{ steps.check.outputs.latest }}
+        run: |
+          brew bump-cask-pr --write-only --no-audit --no-style \
+            --version "$LATEST" "so-cool/tap/${{ matrix.cask }}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "${{ matrix.cask }} ${LATEST}"
+          git pull --rebase
+          git push
