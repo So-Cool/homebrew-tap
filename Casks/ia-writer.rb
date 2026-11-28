@@ -1,8 +1,8 @@
 cask "ia-writer" do
   # Version and sha256 are updated monthly by .github/workflows/bump-casks.yml.
   # The version is "<marketing version>,<build number>" given by the zip name.
-  version "0,0"
-  sha256 "0000000000000000000000000000000000000000000000000000000000000000"
+  version "8.2.4,82029"
+  sha256 "5033d61ed88553601705f2951f8790e34aa43220d6e95fe3e048daca4d033de1"
 
   url "https://files.ia.net/writer/release/iA-Writer-#{version.csv.first}-#{version.csv.second}.zip"
   name "iA Writer"
